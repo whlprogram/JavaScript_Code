@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<img id='BG_img' src='images/boy.jpg'>
+		<br/>
+		<input type="button" value='boy' onclick='js_boy()'/>
+		<input type="button" value='girl' onclick='js_girl()'/>
+		<input name='username' type="text" value='请输入用户名'/>
+		
+		<form action="" name="form1">
+			<input type="text" name="username"/>
+		</form>
+		<script type='text/javascript'>
+		    /*
+			document.getElementById('id');//根据id查找dom对象
+			document.getElementsByTagName('标签名');
+			document.getElementsByName('标签的name属性值');
+			document.getElementsByClassName('class名');
+			表单:
+				获取表单元素:var obj = document.表单名.表单元素名;	
+			*/
+			//根据标签名查找dom对象
+			var js_ipts = document.getElementsByTagName('input');
+			console.log(js_ipts[0]);//<input type="button" value='boy' onclick='js_boy()'/>
+			console.log(js_ipts[0].type);//button
+			//根据标签的name属性值查找dom对象
+			var js_users = document.getElementsByName('username');
+			console.log(js_users);//<input name='username' type="text" value='请输入用户名'/>
+			console.log(js_users.type);//text
+			//表单
+			var js_obj = document.form1.username;
+			console.log(js_obj);//<input type="text" name="username"/>
+			function js_boy(){
+				//获得img在浏览器内存所对应的对象
+				var js_img = document.getElementById('BG_img');
+				js_img.src = 'images/boy.jpg';
+			}
+			function js_girl(){
+				//var js_img = document.getElementById('BG_img');
+				document.getElementById('BG_img').src = 'images/girl.jpg';
+			}
+		</script>
+	</body>
+</html>

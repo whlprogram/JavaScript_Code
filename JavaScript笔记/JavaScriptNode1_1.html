@@ -1,0 +1,49 @@
+<html>
+	<head>
+	
+	</head>
+	<body>
+		
+		<script type='text/javascript'>
+			alert("hello world");//以提示框形式展示参数信息
+			console.log("hello console");//通过控制台输出数据
+			var a;
+			a = 10;//number 数字类型
+			console.log(a);
+			var b = "abc";//string类型
+			console.log(b);
+			var c = true;//boolean 类型
+			console.log(c);
+			/*
+			特殊值:
+				null: 空(不指向任何对象，没有引用(变量)类型)
+				undefined: 未定义(声明变量，未赋值)
+				NaN: 非数(如果将一个“aaa”转换成一个数字，转换失败后结果就是NaN)
+			*/
+			var d = null;//d不指向任何值，用来清空变量
+			
+			var e;
+			console.log(e);//undefined		
+			var f = [];
+			f[0] = 1;
+			f[3] = 4;
+			console.log(f);//[1,undefined*2,4]
+			
+			//将字符串"123"转换成数字123
+			var g = "123";
+			//typeof() 返回变量类型
+			console.log(typeof(g));//string 
+			//parseInt() 强制转换为整数
+			var h = parseInt(g);
+			console.log(h);//123
+			console.log(typeof(h));//number
+			
+			var g = "asdf";
+			console.log(typeof(g));//string
+			var h = parseInt(g);
+			console.log(h);//NaN 
+			console.log(typeof(h));//number
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,67 @@
+<html>
+	<head>
+	
+	</head>
+	<body>
+		<script type='text/javascript'>
+		var a = 'abcabcabcabc';
+		var b = new String('abc');
+		console.log(a.length);//12
+		/*
+		indexOf(str);  //在字符串查找str第一次出现的位置并返回，不存在则返回-1
+		charAt(index); //返回index位置的字符串
+		split(str);    //根据str对字符串进行拆分
+		replace(s1,s2);//将字符串中第一个s1替换成s2
+		*/
+		console.log(a.indexOf('b'));//1
+		console.log(a.indexOf(b));//0  括号中是变量b
+		
+		console.log(a.charAt(4)); // b
+		
+		console.log(a.split("")); //["a", "b", "c", "a", "b", "c", "a", "b", "c", "a", "b", "c"]
+		console.log(a.split("b",2)); //["a", "ca"]
+		
+		var aa = a.replace("c","h");
+		console.log(aa);//abhabcabcabc
+		
+		
+		//1.创建
+		var dt1 = new Date();//获取当前系统的时间
+		var dt2 = new Date('1996-12-04');//创建一个指定日期对象
+		/*2.常见函数
+		getFullYear();//获得年份数字
+		getDate();//获得日期数字(1~31)
+		getMonth();//获得月份数字(0~11)
+		getDay(); //获得星期数字(0~6|星期日~星期六)
+		getTime();//获得时间的毫秒值(1970-1-1到现在)
+		getHours();//时(24时)
+		getMinutes();//分
+		getSeconds();//秒
+		toLocaleString();//将日期转换为本地日期显示格式	
+		*/
+		console.log(dt1);//Mon Nov 07 2016 02:39:06 GMT+0800 (中国标准时间)
+		console.log(dt2);//Wed Dec 04 1996 08:00:00 GMT+0800 (中国标准时间)
+		console.log("年:"+dt1.getFullYear());//年:2016
+		console.log("阴历日期:"+dt1.getDate());//阴历日期:7
+		console.log(dt1.getMonth()+1);//11    +1获得自然月数字
+		
+		
+		/*数学函数*静态方法，直接使用Math.函数名();
+		abs(n);//求取n的绝对值
+		sqrt(n);//开平方
+		round(n);//四舍五入，得到整数
+		ceil(n);//向上靠拢截取数据
+		floor(n);//向下靠拢截取数据
+		random();//随机生成0~1之间的任意一个值
+		*/
+		//求取4的平方根
+		var e = Math.sqrt(4);
+		console.log(e);//2
+		//获得一个0~1随机值
+		var f = Math.random();
+		//var f = Math.random()*100; //0~100
+		//var f = Math.round(Math.random()*100); //0~100取整  注意界值，是否允许取到100
+		console.log(f);
+		</script>
+	</body>
+</html>

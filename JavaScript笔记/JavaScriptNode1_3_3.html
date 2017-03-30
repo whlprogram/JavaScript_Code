@@ -1,0 +1,70 @@
+<html>
+	<head>
+	
+	</head>
+	<body>
+		
+		<script type='text/javascript'>
+		/*
+		创建自定义对象：
+		java  由对象模板class 创建对象
+		js    没有类的概念，也没有对象的模板
+		*/
+		/*
+		JOSN形式创建对象(最常见)
+		var p ={
+		属性名1:值1,
+		属性名2:值2,
+		...
+		};
+		
+		最常用
+		*/
+		var stu ={
+		name:'whl',
+		age:20,
+		getName:function(){return this.name},//this 当前对象
+		sayAlert:function(){alert('哈哈哈')}
+		};
+		console.log(stu);//Object {name: "whl", age: 20}
+		//两种访问方式
+		console.log(stu.name);//whl
+		console.log(stu['name']);//whl
+		var n = stu.getName();
+		console.log(n);//whl
+		//修改属性
+		stu.name = 'lhw';
+		console.log(stu.name);//lhw
+		//添加属性
+		stu.address = '郑州大学';
+		console.log(stu);//Object {name: "lhw", age: 20, address: "郑州大学"}
+		//删除属性
+		delete stu.age;
+		console.log(stu);//Object {name: "lhw", address: "郑州大学"}
+		
+		/*
+		通过new Object
+		var p = new Object();
+		可读性好
+		*/
+		var p = new Object();//对象没有属性
+		p.name = 'asd';
+		p.age = 18;
+		p.address = "sahdkl";
+		console.log(p); //Object {name: "asd", age: 18, address: "sahdkl"}
+		
+		/*
+		遍历stu所有属性，如果是方法就执行，否则输出属性值
+		*/
+		for(m in stu){
+			if(typeof(stu[m]) == 'function'){
+				stu[m]();
+			}else{
+				console.log(stu[m]);
+			}
+				
+				
+		}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+	<head>
+	
+	</head>
+	<body>
+	
+		<script type='text/javascript'>
+			/*
+			1. + - * / % > >= < <=
+			2.等值判断 内容判断 == != 
+			           内容和数据同时等值判断 ===!==
+			3.逻辑运算符 && || !
+			4.三目运算符: boolean表达式?值1:值2
+			5.typeof 变量名 //查看变量存储的值的类型
+			  //值为:number string object undefined function的字符串
+			复合类型 Object Array Function Math Date
+			*/
+			var a = 123;
+			var b = '123';
+			console.log(a==b); //true 判断a b中的内容是否一样，与数据类型无关
+			console.log(a===b); //false 判断a b中的内容和数据类型是否完全一致
+			console.log(typeof a);//number 获得变量a的数据类型
+			//java instanceof: a instanceof 类型
+			/*
+			for(var i=0;i<5;i++){}  变量声明用var
+			for( XX in xx ) 类似于java里的foreach
+			-----------------------------------------
+			特殊的条件判断
+			布尔值     true   				 false
+			数字       非0      			 0
+			字符串     字符串长度大于0       '' 或者 ""(空字符串)
+			特殊值							 null,undefined,NaN
+			*/
+			if(a==b){ //if(12) if("whl") 
+			console.log('条件成立'); 
+			}
+			if(a===b){ //if(0) if("") if(null) 为false 下面语句不执行
+			console.log('条件不成立'); 
+			}
+			/*
+			parseInt(sn);//将字符串转换成数字 强制转换
+			isNaN(n);    //判断变量n中的内容是否是非数
+			typeof(v);   //获取变量v中值的数据类型(结果是字符串)
+			*/
+			var c = '12abc123';
+			console.log(parseInt(c));//12 从左开始转换，碰到非数字停止转换
+			console.log(isNaN(c)); //true
+			console.log(isNaN(a)); //false
+		</script>
+	</body>
+</html>

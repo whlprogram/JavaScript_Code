@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.sp1{
+				color:red;
+			}
+		</style>
+	</head>
+	<body>
+		<span class='sp1'>我是span标签1</span>
+		<span class='sp1'>我是span标签2</span>
+		<span class='sp1'>我是span标签3</span>
+		<span class='sp1'>我是span标签4</span>
+		
+		<script type='text/javascript'>
+			/*
+			document.getElementById('id');//根据id查找dom对象
+			document.getElementsByTagName('标签名');
+			document.getElementsByName('标签的name属性值');
+			document.getElementsByClassName('class名');	
+			*/
+			/*
+			dom模型: 父元素有对所有的子元素的查询权力
+					 父元素有对所有的直接子元素做增删改
+			*/
+			/*
+			操作dom对象的属性[*]
+				dom对象.标签属性名 = 新值;//修改值
+				var val = dom对象.标签属性名;//获取值
+			操作dom对象的标签体内容
+				html对象名.innerHTML = "可以有html标签";
+			操作html对象的样式属性
+			1)html对象名.style.样式属性名 = 新值;
+				注意:JS中的样式属性名,是在原CSS样式属性的基础上去掉中间的"-"
+				其后的首字母大写,如 background-color --> backgroundColor; 
+				若没有"-",则一致.
+			2)html对象名.className = 新值;
+			*/
+			//操作span4标签中的标签体
+			var sp4 =  document.getElementsByClassName('sp1')[3];
+			console.log(sp4.innerHTML);//我是span标签4
+			sp4.innerHTML = '第四个span';
+			//修改sp4对应的样式
+			sp4.style.color = 'blue';
+		</script>
+	</body>
+</html>

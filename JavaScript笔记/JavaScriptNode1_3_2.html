@@ -1,0 +1,81 @@
+<html>
+	<head>
+	
+	</head>
+	<body>
+		
+		<script type='text/javascript'>
+		/*数组
+		特点: 1.没有固定长度 2.同一数组中可以放任意类型的数据
+		*/
+		/*创建数组:
+		var arr = new Array();
+		var arr = [a1,a2,a3,......];
+		给元素赋值 arr[下标]=值;
+		*/
+		//java  int[] arr = new int[10];数组长度不可变
+		//js    var arr = []; 长度可变，数据类型无限制
+		var as = [1,'cs',new Date(),[1,2]];
+		console.log(typeof(as));//object 对象类型
+		as[4] = "qwhfqwo";
+		console.log(as);//[1, "cs", Mon Nov 07 2016 03:15:21 GMT+0800 (中国标准时间), Array[2], "qwhfqwo"]
+		as[6] = "whl";
+		console.log(as);
+		/*Array[7]
+			0:1
+			1:"cs"
+			2:Mon Nov 07 2016 03:16:27 GMT+0800 (中国标准时间)
+			3:Array[2]
+			4:"qwhfqwo"
+			6:"whl"
+			length:7
+		*/
+		/*遍历数组:
+		for(下标 in 数组){
+			alert(数组[下标]);
+		}
+		*/
+		console.log('-------------------------------');
+		for(var i=0;i<as.length;i++){
+			console.log(as[i]);
+		}//可以获取undefined值
+		console.log('-------------------------------');
+		for(i in as){
+			console.log(as[i]);
+		}//无法获取undefined值
+		
+		/*常见方法
+		push(e1,e2,....,en);//可向数组的末尾添加一个或多个元素
+		splice(index,len);//从n下标开始删除，依次总共删除len个
+		pop();//删除并返回数组的最后一个元素
+		shift();// 删除并返回数组的第一个元素 
+		unshift(e1,e2,....,en);//  向数组的开头添加一个或更多元素，并返回新的长度。
+		reverse();//  颠倒数组中元素的顺序。 
+        join(str);//元素通过str进行分隔 (不给参数默认按照","分隔)
+		sort(sortFunction);// 对数组的元素按照sortFunction给定规则进行排序
+                           //默认按照字符串排序规则进行排序(按照字母顺序)		
+		*/
+		var arrs = [1,45,56,32,6,98];
+		arrs.sort();
+		console.log(arrs);//[1, 32, 45, 56, 6, 98] 
+		//console.log(arrs.sort()); //同上 字符串规则，用第一个位置元素  进行排序
+		
+		//通过function创造函数
+		function mysort(a,b){
+			//a-b>0
+			return a-b;
+		}
+		arrs.sort(mysort);
+		console.log(arrs);//[1, 6, 32, 45, 56, 98]
+		
+		//将函数作为实参传递,函数形参可以是另一个函数
+		function f1(a,b){		
+			return a+b;
+		}
+		function f2(f){		
+			console.log(f(1,2));
+		}
+		f2(f1);//3
+		</script>
+	</body>
+</html>

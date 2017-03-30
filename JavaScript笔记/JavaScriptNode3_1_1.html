@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>动态表格</title>
+		<style type="text/css">
+			.select{
+				background-color:#cccccc;
+				color:white;
+				cursor:pointer;
+			}
+			tr:hover{
+				background-color:lightgary;
+				cursor:pointer;
+			}
+		</style>
+		
+	</head>
+	<body>
+		编号  :<input id="s_id" type="text"/>
+		商品名:<input id="name" type="text"/>
+		价格  :<input id="price" type="text"/>
+		<input type="button" value="添加" onclick="addRow()" />
+		<hr/>
+		<table cellpadding='0' cellspacing='0' align='center' border='1' width='80%'>
+			<tbody id="tbody1">
+				<tr style="background-color:blue;color:white">
+					<td>选择</td>
+					<td>编号</td>
+					<td>商品</td>
+					<td>价格</td>
+					<td>删除</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="personid"></td><!--input有个属性checked='checked'-->
+					<td>001</td>
+					<td>iphone6</td>
+					<td>6000</td>
+					<td>
+						<input id='del' type="button" value="delete" onclick="deleteRow(this)" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="checkbox" name="personid">
+					</td>
+					<td>002</td>
+					<td>iphone7</td>
+					<td>8000</td>
+					<td>
+						<input id='del' type="button" value="delete" onclick="deleteRow(this)" />
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr/>
+		<center>
+			<input type="button" value="全选" onclick="selectAll()" />
+			<input type="button" value="反选" onclick="selectBack()" />
+			<input type="button" value="全不选" onclick="selectAllNotChk()" />
+			<input type="button" value="删除选中" onclick="selectDeleteChk()" />
+		</center>
+		<script type='text/javascript'>
+	    /*DOM树的增删改
+		1)创建 文本节点 (标签体的文本内容)
+			var txtNodeObj = document.createTextNode("文本内容");
+		2)创建 html对象(开始和结束标签)
+			var obj = document.createElement("标签名称");
+		3)添加节点/html对象
+			父对象.appendChild(子对象);
+		4)替换 html对象
+			父对象.replaceChild(新对象,旧对象);
+		5)删除 html对象
+			父对象.removeChild(子对象);
+		6)在指定位置 添加html对象
+			父对象.insertBefore(新对象,旧对象);
+		*/
+		/*相关属性
+		dom对象 .parentNode 当前对象的父对象
+				.childNodes 当前对象的所有子对象构成的数组【浏览器差异,是否包含空白换行字符】
+				.firstChild 第一个子对象【浏览器差异,是否包含空白换行字符】
+				.lastChild 最后一个子对象【浏览器差异,是否包含空白换行字符】
+				.nextSibling  最后一个兄弟对象【浏览器差异,是否包含空白换行字符】
+				.previousSibling 前面一个兄弟对象【浏览器差异,是否包含空白换行字符】
+		*/
+		//添加
+		function addRow(){
+			//将3个input内容添加到table的一个tr
+			//1.获取input输入的值
+			var jsid = document.getElementById('s_id').value;
+			var jsname = document.getElementById('name').value;
+			var jsprice = document.getElementById('price').value;
+			//2.创建5个td
+			var td1 = document.createElement('td');
+			td1.innerHTML = '<input type="checkbox" name="personid">';
+			var td2 = document.createElement('td');
+			td2.innerHTML = jsid;
+			var td3 = document.createElement('td');
+			td3.innerHTML = jsname;
+			var td4 = document.createElement('td');
+			td4.innerHTML = jsprice;
+			var td5 = document.createElement('td');
+			td5.innerHTML = '<input type="button" value="delete" onclick="deleteRow(this);" />';
+			//3.创建tr
+			var tr = document.createElement('tr');
+			tr.appendChild(td1);
+			tr.appendChild(td2);
+			tr.appendChild(td3);
+			tr.appendChild(td4);
+			tr.appendChild(td5);
+			//4.将tr绑定在tbody子标签中
+			document.getElementById('tbody1').appendChild(tr);
+		}
+		//删除
+		function deleteRow(delbtn){
+		    //delbtn代表delete删除按钮
+			//1.先获得要删除的对象 tr
+			var tr = delbtn.parentNode.parentNode
+			//2.获得要删除对象的直接父对象 tbody
+			var tb = tr.parentNode;
+			//3.调用 父对象.removeChild(子对象);
+			tb.removeChild(tr);
+		}
+		//全选
+		function selectAll(){
+			//1.获得所有的checkbox			
+			//2.遍历所有的checkbox
+			//3.对每个对象添加checked属性
+			var inps = document.getElementsByTagName('input');
+			for(var i=inps.length-1;i>=0;i--){
+				if(inps[i].type == 'checkbox'){
+					//inps[i].checked;//当前checkbox添加checked
+					inps[i].checked = true;//效果相同
+				}
+			}	
+		}
+		//反选
+		function selectBack(){
+			var inps = document.getElementsByTagName('input');
+			for(var i=inps.length-1;i>=0;i--){
+				if(inps[i].type == 'checkbox'){
+					inps[i].checked = !inps[i].checked;
+				}
+			}
+		}
+		//全不选
+		function selectAllNotChk(){
+			var inps = document.getElementsByTagName('input');
+			for(var i=inps.length-1;i>=0;i--){
+				if(inps[i].type == 'checkbox'){
+					inps[i].checked = false;
+				}
+			}
+		}
+		//删除选中
+		function selectDeleteChk(){
+			var inps = document.getElementsByTagName('input');
+			for(var i=inps.length-1;i>=0;i--){
+				if(inps[i].type == 'checkbox'){
+					if(inps[i].checked == true){
+						deleteRow(inps[i]);
+					}
+				}
+			}
+		}
+		</script>
+	</body>
+</html>

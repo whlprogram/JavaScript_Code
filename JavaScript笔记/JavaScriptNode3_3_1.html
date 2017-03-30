@@ -1,0 +1,67 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Select元素</title>
+	</head>
+	<body>
+		<form action="" name="fm1">
+			<select name="sel">
+				<option value='zhangsan'>张三</option>
+				<option value='lisi'>李四</option>
+				<option value='wangwu'>王五</option>
+			</select>
+		</form>
+		<input type='button' value='获取下拉列表框的所有选项' onclick='fun1()'>
+		<input type='button' value='获取被选中的选项下标' onclick='fun2()'>
+		<input type='button' value='添加一个选项' onclick='fun3()'>
+		<input type='button' value='清空下拉列表' onclick='fun4()'>
+		
+		<script type='text/javascript'>
+	    /*Select元素
+		常见属性:   select下拉列表对象.options   值为数组,代表下拉列表里所有的options选项
+				    select下拉列表对象.selectedInder   代表被选中的的option的下标(从0开始)
+					构建一个option var op = new Option(text,value);
+					清空下拉列表 tag.options.length = 0;
+		*/
+		/*
+		添加DOM对象
+			1.创建顺序是从小到大创建(子元素---父元素)
+				document.createElement('标签名');//默认不会显示在浏览器
+			2.将子元素依次追加到父元素上
+				父元素.appendChild(子元素);
+		浏览器在解析html文档，从上往下一行一行解析
+		*/
+		function fun1(){
+			//获取select的所有option选项
+			var sel = document.getElementsByTagName("select")[0];
+			var ops = sel.options;
+			//遍历对象时候使用for-in
+			//遍历数组使用下标遍历(倒)
+			for(var i=0;i<ops.length;i++){
+				console.log(ops[i]);
+				console.log(ops[i].value+":"+ops[i].innerHTML);
+			}
+		}
+		//获取被选中的选项下标
+		function fun2(){
+				console.log(document.fm1.sel.selectedIndex);
+		}
+		//添加一个选项
+		function fun3(){
+			//创建option
+			var op = new Option('王麻子','wangmazi');
+		    //var op = document.createElement('option');
+			//op.value = 'wangmazi';
+			//op.innerHTML = '王麻子';
+			
+			//绑定在select
+			document.fm1.sel.appendChild(op);
+		}
+		//清空下拉列表
+		function fun4(){
+			document.fm1.sel.options.length = 0;
+		}
+
+		</script>
+	</body>
+</html>

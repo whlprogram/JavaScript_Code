@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<form action="" name="fml" onsubmit='fun_sub();'>
+			<input type='text' name='username' onfocus='fun_fc();' onblur='js_obr();'/>
+			<select name='city' onchange='chg();'>
+				<option value='1'>郑州</option>
+				<option value='2'>深圳</option>
+				<option value='3'>腾讯</option>
+			</select>
+			<input  type='submit' />
+		</form>
+		
+		
+		<script type='text/javascript'>
+	    function fun_fc(){
+			console.log('获得鼠标焦点');
+		}
+		function js_obr(){
+			alert('username输入框失去焦点');
+		}
+		function chg(){
+			alert('下拉列表框发生改变');
+		}
+		function fun_sub(){
+			alert('提交');
+		}
+		/*
+		body相关事件 
+			onload = function //某个页面或图像被完成加载function方法
+			onunload 用户退出页面，窗口离开时触发（刷新，返回，前进，主页）
+			onscroll 页面滚动
+			onresize 缩放页面，窗口或框架被调整尺寸 
+		form表单控件相关时间
+			onblur 当前元素失去焦点 
+			onchange 当前元素失去焦点,并且值改变时
+			onfocus 当前元素获得焦点 
+			onsubmit 表单提交时
+		*/
+		</script>
+	</body>
+</html>
